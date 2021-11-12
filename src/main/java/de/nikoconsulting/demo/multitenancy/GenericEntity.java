@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name = "GenericEntity")
-@Table(name = "GENERICENTITY")
+@Table(name = "genericentity")
 public class GenericEntity implements Serializable {
 
     @Id

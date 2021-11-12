@@ -1,11 +1,5 @@
 package de.nikoconsulting.demo.multitenancy;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
-import java.io.IOException;
-import java.util.Properties;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,6 +12,12 @@ import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
+import java.io.IOException;
+import java.util.Properties;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public abstract class MultitenancyIntegrationTest {
 
@@ -46,12 +46,23 @@ public abstract class MultitenancyIntegrationTest {
 
     protected void initTenant(String tenantId) {
         whenCurrentTenantIs(tenantId);
-        //createEntityTable();
+        createEntityTable();
     }
 
     protected void whenCurrentTenantIs(String tenantId) {
         Mockito.when(currentTenantIdentifierResolver.resolveCurrentTenantIdentifier())
                 .thenReturn(tenantId);
+    }
+
+    @SuppressWarnings("deprecation")
+    private void createEntityTable() {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.createSQLQuery("drop table genericentity if exists")
+                .executeUpdate();
+        session.createSQLQuery("create table genericentity (id int primary key, name varchar(255) )")
+                .executeUpdate();
+        tx.commit();
     }
 
     protected void whenAddEntity(String name) {

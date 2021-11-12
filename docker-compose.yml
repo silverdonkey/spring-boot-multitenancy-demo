@@ -1,0 +1,41 @@
+# ./docker-compose.yml
+
+version: "3"
+
+services:
+  mysql-docker:
+    image: mysql/mysql-server:8.0.27-1.2.5-server
+    container_name: mysql-docker
+    volumes:
+      - ./database-init.sql:/docker-entrypoint-initdb.d/database-init.sql:ro
+    restart: always
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: Password1
+      MYSQL_DATABASE: mydb1         # create db
+      MYSQL_USER: dbuser            # create user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer-mysql8server
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql-docker
+    ports:
+      - "8080:8080"
+
+#  web-server:
+#    build:
+#      context: ./
+#      dockerfile: Dockerfile
+#    container_name: spring-boot-app
+#    depends_on:
+#      - mysql-docker
+#    ports:
+#      - "8181:8181"
+#    networks:
+#      - mynetwork
+#    stdin_open: true
+#    tty: true

@@ -5,4 +5,4 @@ TODO
 
 ### Current State
 * Spring Boot
-* H2 Database
+* MySql 8 Database (dockerized)
