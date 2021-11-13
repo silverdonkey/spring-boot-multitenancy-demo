@@ -4,7 +4,7 @@ RUN apk add --no-cache bash
 
 # Will be substituted by CI during merge-master
 ENV ARTIFACTVERSION 0.1.0-SNAPSHOT
-ENV MY_ENV local
+ENV MY_ENV socat
 
 # Maven build
 COPY target/*.jar /srv/service.jar
@@ -14,6 +14,6 @@ RUN chmod +x /srv/run.sh
 
 WORKDIR /srv
 
-EXPOSE 8181
+EXPOSE 8080
 
 ENTRYPOINT ["/srv/run.sh", "${MY_ENV}"]

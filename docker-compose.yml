@@ -5,7 +5,7 @@ version: "3"
 services:
   mysql-docker:
     image: mysql/mysql-server:8.0.27-1.2.5-server
-    container_name: mysql-docker
+    container_name: mysqldb
     volumes:
       - ./database-init.sql:/docker-entrypoint-initdb.d/database-init.sql:ro
     restart: always
@@ -26,16 +26,22 @@ services:
     ports:
       - "8080:8080"
 
-#  web-server:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-#    container_name: spring-boot-app
-#    depends_on:
-#      - mysql-docker
-#    ports:
-#      - "8181:8181"
-#    networks:
-#      - mynetwork
-#    stdin_open: true
-#    tty: true
+# https://www.redhat.com/sysadmin/getting-started-socat
+#
+  socat:
+    image: alpine/socat
+    command: 'TCP-LISTEN:3306,reuseaddr,fork TCP:mysql-docker:3306,forever,interval=5'
+
+  web-server:
+    image: spring-boot-multitenancy-demo:1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: spring-boot-app
+    depends_on:
+      - socat
+      - mysql-docker
+    ports:
+      - "8181:8080"
+    stdin_open: true
+    tty: true
