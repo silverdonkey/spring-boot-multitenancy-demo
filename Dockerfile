@@ -4,7 +4,8 @@ RUN apk add --no-cache bash
 
 # Will be substituted by CI during merge-master
 ENV ARTIFACTVERSION 0.1.0-SNAPSHOT
-ENV MY_ENV socat
+# Possible values for SPRING_PROFILE local | socat
+ENV SPRING_PROFILE socat
 
 # Maven build
 COPY target/*.jar /srv/service.jar
@@ -16,4 +17,4 @@ WORKDIR /srv
 
 EXPOSE 8080
 
-ENTRYPOINT ["/srv/run.sh", "${MY_ENV}"]
+ENTRYPOINT ["/srv/run.sh", "${SPRING_PROFILE}"]

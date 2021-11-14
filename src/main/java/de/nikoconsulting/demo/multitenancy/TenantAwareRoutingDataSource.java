@@ -6,6 +6,6 @@ public class TenantAwareRoutingDataSource extends AbstractRoutingDataSource {
 
     @Override
     protected Object determineCurrentLookupKey() {
-        return ThreadLocalStorage.getTenantName() != null ? ThreadLocalStorage.getTenantName() : "mydb1";
+        return ThreadLocalStorage.getTenantName() != null ? ThreadLocalStorage.getTenantName() : TenantIdNames.MYDB1;
     }
 }
