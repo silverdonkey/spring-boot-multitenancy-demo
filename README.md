@@ -1,7 +1,13 @@
 # Demo for different options of Multitenancy with Spring Boot and JPA
 
 ### Description
+Demonstrate a technical implementation of database routing with Spring boot JPA utilizing
+`AbstractRoutingDataSource` for database routing at runtime. 
+* Based on [Providing Multitenancy with Spring Boot](https://www.bytefish.de/blog/spring_boot_multitenancy.html)
+* Extended with dockerized MySql 8 Server, managing containers with docker-compose and different spring profiles
 
+#### Note about MySQL's 'schema vs database' notion
+From MySQL 8.0 Reference Manual: [schema](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_schema) is synonymous with [database](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_database).
 
 ### Prep for Demo
 From your command line run docker-compose:
@@ -31,6 +37,7 @@ From your command line run docker-compose:
 
 #### Run
 Precondition: MySql8 Server is started (`docker-compose up -d`) 
+
 Use the `dev` profile which starts the Spring-Boot-App at port 8282 (to avoid conflict with the container started by docker-compose):
 * `mvn spring-boot:run -Dspring-boot.run.profiles=dev`
 * Go to http://localhost:8282/entity/all
