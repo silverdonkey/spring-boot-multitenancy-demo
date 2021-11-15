@@ -22,7 +22,7 @@ From your command line run docker-compose:
 * Rebuild evereything:
   * `docker-compose down -v`
   * `docker-compose up --build`
-* Look ath the logs for "ERROR com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Exception during pool initialization. ... com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure"
+* Look at the logs for "ERROR com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Exception during pool initialization. ... com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure"
 
 
 ### Build and Run the Spring-Boot service locally with Maven
@@ -39,7 +39,7 @@ Use the `dev` profile which starts the Spring-Boot-App at port 8282 (to avoid co
 
 ### Commands
 
-#### Start all Docker Container (to rebuild use '--build' option):
+#### Start all Docker Container (to rebuild use '--build' flag):
 * `docker-compose up` to create and start containers
 * `docker-compose up -d` to start in the background/as deamon
 * `docker-compose up --build -d` to rebuild and start as deamon
