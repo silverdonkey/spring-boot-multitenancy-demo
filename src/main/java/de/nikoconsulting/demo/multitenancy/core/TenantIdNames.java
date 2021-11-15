@@ -1,4 +1,4 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.core;
 
 public class TenantIdNames {
     public static final String MYDB1 = "mydb1";

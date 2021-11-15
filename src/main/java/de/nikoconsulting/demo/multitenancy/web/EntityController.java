@@ -1,5 +1,7 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.web;
 
+import de.nikoconsulting.demo.multitenancy.repositories.GenericEntityRepository;
+import de.nikoconsulting.demo.multitenancy.model.GenericEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

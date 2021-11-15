@@ -1,4 +1,4 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.core;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

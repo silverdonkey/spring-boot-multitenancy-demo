@@ -1,5 +1,7 @@
 package de.nikoconsulting.demo.multitenancy;
 
+import de.nikoconsulting.demo.multitenancy.core.TenantIdNames;
+import de.nikoconsulting.demo.multitenancy.model.GenericEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

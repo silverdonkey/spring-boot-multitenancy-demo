@@ -1,4 +1,4 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

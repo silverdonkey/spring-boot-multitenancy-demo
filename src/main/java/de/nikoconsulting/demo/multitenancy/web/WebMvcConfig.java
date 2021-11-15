@@ -1,5 +1,7 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.web;
 
+import de.nikoconsulting.demo.multitenancy.DataSourceProperties;
+import de.nikoconsulting.demo.multitenancy.core.TenantAwareRoutingDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

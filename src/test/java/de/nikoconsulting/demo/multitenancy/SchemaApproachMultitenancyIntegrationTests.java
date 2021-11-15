@@ -1,5 +1,6 @@
 package de.nikoconsulting.demo.multitenancy;
 
+import de.nikoconsulting.demo.multitenancy.core.TenantIdNames;
 import org.junit.Test;
 
 import java.io.IOException;

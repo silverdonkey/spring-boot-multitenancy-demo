@@ -1,4 +1,4 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.core;
 
 /**
  * Please note that if you would like to share the ThreadLocal with the child thread,
