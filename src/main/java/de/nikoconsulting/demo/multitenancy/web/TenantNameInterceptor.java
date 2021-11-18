@@ -1,5 +1,6 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.web;
 
+import de.nikoconsulting.demo.multitenancy.core.ThreadLocalStorage;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;

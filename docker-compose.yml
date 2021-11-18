@@ -1,0 +1,48 @@
+# ./docker-compose.yml
+
+version: "3"
+
+services:
+  mysql-docker:
+    image: mysql/mysql-server:8.0.27-1.2.5-server
+    container_name: mysql8server
+    volumes:
+      - ./database-init.sql:/docker-entrypoint-initdb.d/database-init.sql:ro
+    restart: unless-stopped         # "no" | always | on-failure | unless-stopped
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: Password1
+      MYSQL_DATABASE: mydb1         # create db
+      MYSQL_USER: dbuser            # create user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer-mysql8server
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql-docker
+    ports:
+      - "8181:8080"
+
+  # https://www.redhat.com/sysadmin/getting-started-socat
+  socat:
+    image: alpine/socat
+    container_name: socat-mysql8server
+    command: 'TCP-LISTEN:3306,reuseaddr,fork TCP:mysql-docker:3306,forever,interval=5'
+
+  web-server:
+    image: spring-boot-multitenancy-demo:1.0.0
+    # restart: on-failure
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: spring-boot-app
+    depends_on:
+      - socat
+      - mysql-docker
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    tty: true

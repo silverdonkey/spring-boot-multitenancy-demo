@@ -1,5 +1,7 @@
-package de.nikoconsulting.demo.multitenancy;
+package de.nikoconsulting.demo.multitenancy.web;
 
+import de.nikoconsulting.demo.multitenancy.core.TenantAwareRoutingDataSource;
+import de.nikoconsulting.demo.multitenancy.core.TenantIdNames;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -25,6 +27,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public DataSource getDataSource() {
         TenantAwareRoutingDataSource tenantAwareRoutingDataSource = new TenantAwareRoutingDataSource();
         tenantAwareRoutingDataSource.setTargetDataSources(dataSourceProperties.getDatasources());
+        tenantAwareRoutingDataSource.setDefaultTargetDataSource(dataSourceProperties.getDatasources().get(TenantIdNames.MYDB1));
         tenantAwareRoutingDataSource.afterPropertiesSet();
         return tenantAwareRoutingDataSource;
     }
