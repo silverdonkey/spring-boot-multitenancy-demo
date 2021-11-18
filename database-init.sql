@@ -45,7 +45,7 @@ UNLOCK TABLES;
 -- Database: 'mydb2'
 --
 
-USE `mydb2`;
+q
 
 DROP TABLE IF EXISTS `genericentity`;
 

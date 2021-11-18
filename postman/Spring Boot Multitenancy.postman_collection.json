@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "34d6d539-1894-4b17-a2f1-d66154db9054",
+		"_postman_id": "631d9c16-00bf-4cf1-a51d-38bb91dea80c",
 		"name": "Spring Boot Multitenancy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -22,7 +22,7 @@
 					},
 					{
 						"key": "X-TenantID",
-						"value": "mydb2",
+						"value": "mydb1",
 						"type": "text"
 					}
 				],
@@ -58,17 +58,17 @@
 					},
 					{
 						"key": "X-TenantID",
-						"value": "mydb2",
+						"value": "mydb1",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8181/entity/2",
+					"raw": "http://localhost:8080/entity/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8181",
+					"port": "8080",
 					"path": [
 						"entity",
 						"2"
@@ -104,7 +104,7 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "MYDB1_New_Entity",
+							"value": "MYDB1_Entity_4",
 							"type": "text"
 						}
 					]
