@@ -45,8 +45,6 @@ UNLOCK TABLES;
 -- Database: 'mydb2'
 --
 
-q
-
 DROP TABLE IF EXISTS `genericentity`;
 
 CREATE TABLE IF NOT EXISTS `genericentity` (
