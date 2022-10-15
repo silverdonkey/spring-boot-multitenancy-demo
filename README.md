@@ -25,7 +25,7 @@ From your command line run docker-compose:
 
 #### Demo Issue with startup order and dependencies
 * Change the profile in the Dockerfile to `local`
-* Rebuild evereything:
+* Rebuild everything:
   * `docker-compose down -v`
   * `docker-compose up --build`
 * Look at the logs for "ERROR com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Exception during pool initialization. ... com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure"
