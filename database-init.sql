@@ -40,7 +40,7 @@ VALUES (1, 'MYDB1_Entity_1'),
 /*!40000 ALTER TABLE `genericentity` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
+USE `mydb2`;
 --
 -- Database: 'mydb2'
 --
