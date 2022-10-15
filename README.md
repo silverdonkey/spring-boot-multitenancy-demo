@@ -1,4 +1,4 @@
-# Demo for different options of Multitenancy with Spring Boot and JPA
+# Demo for Multitenancy with Spring Boot and JPA
 
 ### Description
 Demonstrate a technical implementation of database routing with Spring boot JPA utilizing
