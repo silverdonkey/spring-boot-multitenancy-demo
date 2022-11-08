@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Running as User: $(whoami)"
 echo "JAVA_HOME=$JAVA_HOME"
 echo "JAVA_OPTIONS=$JAVA_OPTIONS"
 
